@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.11.1",
