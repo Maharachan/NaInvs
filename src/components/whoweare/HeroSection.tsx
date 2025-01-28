@@ -27,7 +27,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-200 text-xl mb-8 max-w-3xl"
           >
-            At Nainvs, we empower businesses by delivering innovative digital solutions 
+            At Tarainvy, we empower businesses by delivering innovative digital solutions 
             and creating ventures that solve real-world problems. We turn bold ideas 
             into successful businesses.
           </motion.p>

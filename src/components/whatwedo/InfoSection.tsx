@@ -385,7 +385,7 @@ const InfoSection = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-12">
-              At Nainvs, we empower businesses by delivering innovative digital solutions 
+              At Tarainvy, we empower businesses by delivering innovative digital solutions 
               and creating ventures that solve real-world problems. Our mission is to drive growth, 
               inspire innovation, and turn bold ideas into successful businesses.
             </p>
@@ -393,7 +393,7 @@ const InfoSection = () => {
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
               We envision a future where businesses of all sizes thrive through innovation 
               and entrepreneurship. As a global leader in digital transformation and venture 
-              creation, Nainvs aims to shape the next generation of successful enterprises.
+              creation, Tarainvy aims to shape the next generation of successful enterprises.
             </p>
           </div>
 

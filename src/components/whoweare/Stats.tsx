@@ -5,7 +5,7 @@ const Stats = () => {
         <div className="bg-white p-8 rounded-3xl shadow-lg">
           <div className="mt-4">
             <h2 className="text-lg md:text-3xl font-bold mb-6 text-center md:text-left">
-              <span className="text-blue-600">Nainvy</span> is your Strategic
+              <span className="text-blue-600">Tarainvy</span> is your Strategic
               Technology Partner, specializing in digital and AI strategy,
               consulting, prototyping, and execution, delivering business value
               across your organization

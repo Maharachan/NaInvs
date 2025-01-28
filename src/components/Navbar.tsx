@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-white z-50 border-b py-2  px-4">
         <div className="container mx-auto  flex items-center justify-between">
-          <a href="/" className="text-2xl font-bold">Nainvs</a>
+          <a href="/" className="text-2xl font-bold">Tarainvy</a>
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-sm hover:text-[#0A74DA]">Home</Link>
             <Link to="/who-we-are" className="text-sm hover:text-[#0A74DA]">Who We Are</Link>

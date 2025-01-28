@@ -28,8 +28,8 @@ const Footer = () => {
             
           </div>
           <div className="space-y-4">
-            <p className="text-white">info@nainvs.com</p>
-            <p className="text-white">careers@nainvs.com</p>
+            <p className="text-white">info@Tarainvy.com</p>
+            <p className="text-white">careers@Tarainvy.com</p>
           </div>
           <div>
             <h3 className="text-white mb-4">Join our newsletter for updates</h3>
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
           
         </div>
-        <p className="text-white text-center mt-12">© 2025 Nainvs. All rights reserved.</p>
+        <p className="text-white text-center mt-12">© 2025 Tarainvy. All rights reserved.</p>
       </div>
     </footer>
   )

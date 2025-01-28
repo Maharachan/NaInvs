@@ -1,4 +1,4 @@
-# NaInvs Digital Consultancy Platform
+# Tarainvy Digital Consultancy Platform
 
 ## Overview
 A modern web platform for digital consultancy services, built with React and TypeScript.
@@ -19,7 +19,7 @@ Ensure you have the following installed:
 ### Installation
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Maharachan/NaInvs.git]
+   git clone [https://github.com/Maharachan/Tarainvy.git]
    ```
 
 2. **Install dependencies:**
