@@ -26,7 +26,7 @@ const InfoSection = () => {
             </div>
             <div className="mt-12">
               <h2 className="text-3xl font-bold mb-2">
-                <span className="gradient-text">Our approach</span> enables our partners to leverage the latest technology to surpass their competition and future-proof their business models
+                <span className="gradient-text">Our innovative</span> approach empowers businesses to harness cutting-edge technology, outpace competitors, and build future-ready, sustainable business models.
               </h2>
             </div>
           </div>

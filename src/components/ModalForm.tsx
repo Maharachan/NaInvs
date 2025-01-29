@@ -1,15 +1,11 @@
 import { X } from 'lucide-react'
-import { useState, useRef, useEffect } from 'react'
-import HCaptcha from '@hcaptcha/react-hcaptcha'
+import { useState, useEffect } from 'react'
 
 export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
-  const captchaRef = useRef<HCaptcha>(null)
 
   const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
-  const hcaptchaSiteKey = import.meta.env.VITE_HCAPTCHA_SITE_KEY
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -24,7 +20,7 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
   }, [isOpen])
 
   // Validate environment variables
-  if (!web3formsKey || !hcaptchaSiteKey) {
+  if (!web3formsKey) {
     console.error('Missing required environment variables')
     return null
   }
@@ -41,11 +37,6 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
     e.preventDefault()
     const form = e.currentTarget
     
-    if (!captchaToken) {
-      alert('Please complete the captcha')
-      return
-    }
-
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -60,11 +51,11 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
         },
         body: JSON.stringify({
           access_key: web3formsKey,
-          name: formData.get('name'),
+          from_name: formData.get('name'),
           email: formData.get('email'),
           phone: formData.get('phone'),
           message: formData.get('message'),
-          'h-captcha-response': captchaToken
+          subject: "New Contact Form Submission"
         })
       })
 
@@ -72,16 +63,11 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
       
       if (data.success) {
         setSubmitStatus('success')
-        // Reset form and captcha safely
         form.reset()
-        if (captchaRef.current) {
-          try {
-            captchaRef.current.resetCaptcha()
-          } catch (error) {
-            console.warn('Failed to reset captcha:', error)
-          }
-        }
-        setCaptchaToken(null)
+        // Optionally close modal after successful submission
+        setTimeout(() => {
+          closeModal()
+        }, 2000)
       } else {
         setSubmitStatus('error')
         console.error('Submission failed:', data)
@@ -92,14 +78,6 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
     } finally {
       setIsSubmitting(false)
     }
-  }
-
-  const onCaptchaVerify = (token: string) => {
-    setCaptchaToken(token)
-  }
-
-  const onCaptchaExpire = () => {
-    setCaptchaToken(null)
   }
 
   return (
@@ -199,19 +177,9 @@ export default function ModalForm({ isOpen, onClose }: { isOpen: boolean, onClos
                 />
               </div>
 
-              {/* Captcha container with fixed height */}
-              <div className="min-h-[78px]">
-                <HCaptcha
-                  ref={captchaRef}
-                  sitekey={hcaptchaSiteKey}
-                  onVerify={onCaptchaVerify}
-                  onExpire={onCaptchaExpire}
-                />
-              </div>
-
               <button
                 type="submit"
-                disabled={isSubmitting || !captchaToken}
+                disabled={isSubmitting}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
